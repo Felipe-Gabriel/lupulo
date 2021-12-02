@@ -1,0 +1,33 @@
+{
+  "name": "lupulos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "express": "^4.17.1",
+    "express-promise-router": "^4.1.0",
+    "express-router": "0.0.1",
+    "pg": "^8.7.1",
+    "sequelize": "^6.12.0-alpha.1"
+  },
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "nodemon": "^2.0.15"
+  },
+  "scripts": {
+    "dev": "nodemon",
+    "lint": "eslint --ext .js,.html -f ./node_modules/eslint-friendly-formatter . --fix",
+    "prepush": "npm run lint",
+    "start": "node server.js"
+  },
+  
+  "keywords": [
+    "lupulo", 
+    "Cajuru"
+  ],
+  "author": "",
+  "license": "ISC"
+}
