@@ -51,16 +51,17 @@ exports.listAllCampos = async (req, res) => {
 
 // ==> Método responsável por selecionar 'Campo' pelo 'Id'
 exports.findCampoById = async (req, res) => {
-  const { id } = parseInt(req.params.id)
-  const response = await db.query('SELECT * FROM sistema.campo WHERE id = $1', [
-    id
-  ])
+  const campo_id = parseInt(req.params.id)
+  const response = await db.query(
+    'SELECT * FROM sistema.campo WHERE campo_id = $1',
+    [campo_id]
+  )
   res.status(200).send(response.rows)
 }
 
 // ==> Método responsável por atualizar 'Campo' pelo 'Id'
 exports.updateCampoById = async (req, res) => {
-  const campoId = parseInt(req.params.id)
+  const campo_id = parseInt(req.params.id)
   const {
     nome,
     localizacao,
@@ -73,7 +74,7 @@ exports.updateCampoById = async (req, res) => {
   } = req.body
 
   const response = await db.query(
-    'UPDATE campo SET nome = $2, cidade = $4, estado = $5 WHERE campoId = $1',
+    'UPDATE sistema.campo SET nome = $1, localizacao = $2, cidade = $3, estado = $4, pais = $5, longitude = $6, latitude = $7, tamanho_m2 = $8 WHERE campo_id = $9',
     [
       nome,
       localizacao,
@@ -83,7 +84,7 @@ exports.updateCampoById = async (req, res) => {
       longitude,
       latitude,
       tamanho_m2,
-      campoId
+      campo_id
     ]
   )
 
@@ -93,8 +94,8 @@ exports.updateCampoById = async (req, res) => {
 // ==> Método responsável por deletar 'Campo' pelo 'Id'
 
 exports.deleteCampoById = async (req, res) => {
-  const campoId = parseInt(req.params.id)
-  await db.query('DELETE FROM campo WHERE campoId = $1', [campoId])
+  const campo_id = parseInt(req.params.id)
+  await db.query('DELETE FROM sistema.campo WHERE campo_id = $1', [campo_id])
 
-  res.status(200).send({ message: 'Campo deleted successfully!', campoId })
+  res.status(200).send({ message: 'Campo deleted successfully!', campo_id })
 }

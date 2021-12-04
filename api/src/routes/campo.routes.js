@@ -5,12 +5,14 @@
  * Author Felipe Gabriel
  */
 
-const router = require('express-promise-router')()
+const Router = require('express-promise-router')
 const campoController = require('../controllers/campo.controllers')
 
 //==> Definindo as rotas do CRUD - 'Campo'
 // ===> fazendo uma teste
 // ==> Rota responsável por criar um novo 'Campo': (POST): localhost:3000/api/campo
+
+const router = new Router()
 
 router.post('/campo', campoController.createCampo)
 
