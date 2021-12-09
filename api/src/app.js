@@ -13,6 +13,7 @@ const app = express()
 // ==> Rotas da API
 const index = require('./routes/index')
 const campoRoute = require('./routes/campo.routes')
+const pessoaRoute = require('./routes/pessoa.routes')
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -21,5 +22,6 @@ app.use(cors())
 
 app.use(index)
 app.use('/api', campoRoute)
+app.use('/api', pessoaRoute)
 
 module.exports = app
