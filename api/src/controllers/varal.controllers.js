@@ -42,16 +42,6 @@ exports.findVaralById = async (req, res) => {
   res.status(200).send(response.rows)
 }
 
-// ==> Método responsável por selecionar 'Varal' pelo 'Id'
-exports.findVaralById = async (req, res) => {
-  const varal_id = parseInt(req.params.id)
-  const response = await db.query(
-    'SELECT * FROM sistema.varal WHERE varal_id = $1',
-    [varal_id]
-  )
-  res.status(200).send(response.rows)
-}
-
 // ==> Método responsável por atualizar 'Varal' pelo 'Id'
 
 exports.updateVaralById = async (req, res) => {

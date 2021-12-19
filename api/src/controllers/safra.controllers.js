@@ -16,20 +16,28 @@ exports.createSafra = async (req, res) => {
     lupulo_id,
     descricao,
     data_plantio,
-    data_colheita_prev,
-    data_floracao_prev,
+    data_colheita_prevista,
+    data_colheita_efetiva,
+    data_floracao_prevista,
+    data_floracao_efetiva,
+    data_iluminacao_ini,
+    data_iluminacao_fim,
     qtd_mudas
   } = req.body
   const response = await db.query(
-    'INSERT INTO sistema.safra (varal_id,campo_id,lupulo_id,descricao, data_plantio,data_colheita_prev, data_floracao_prev, qtd_mudas) VALUES ($1, $2, $3, $4, $5, $6, $8)',
+    'INSERT INTO sistema.safra (varal_id,campo_id,lupulo_id,descricao,data_plantio,data_colheita_prevista,data_colheita_efetiva,data_floracao_prevista,data_floracao_efetiva,data_iluminacao_ini,data_iluminacao_fim,qtd_mudas) VALUES ($1, $2, $3, $4, $5, $6,$7, $8, $9, $10, $11, $12)',
     [
       varal_id,
       campo_id,
       lupulo_id,
       descricao,
       data_plantio,
-      data_colheita_prev,
-      data_floracao_prev,
+      data_colheita_prevista,
+      data_colheita_efetiva,
+      data_floracao_prevista,
+      data_floracao_efetiva,
+      data_iluminacao_ini,
+      data_iluminacao_fim,
       qtd_mudas
     ]
   )
@@ -41,8 +49,12 @@ exports.createSafra = async (req, res) => {
       lupulo_id,
       descricao,
       data_plantio,
-      data_colheita_prev,
-      data_floracao_prev,
+      data_colheita_prevista,
+      data_colheita_efetiva,
+      data_floracao_prevista,
+      data_floracao_efetiva,
+      data_iluminacao_ini,
+      data_iluminacao_fim,
       qtd_mudas
     }
   })
@@ -76,21 +88,29 @@ exports.updateSafraById = async (req, res) => {
     lupulo_id,
     descricao,
     data_plantio,
-    data_colheita_prev,
-    data_floracao_prev,
+    data_colheita_prevista,
+    data_colheita_efetiva,
+    data_floracao_prevista,
+    data_floracao_efetiva,
+    data_iluminacao_ini,
+    data_iluminacao_fim,
     qtd_mudas
   } = req.body
 
   const response = await db.query(
-    'UPDATE sistema.safra SET varal_id = $1, campo_id = $2, lupulo_id = $3, descricao = $4, data_plantio = $5, data_colheita_prev = $6, data_floracao_prev = $7, qtd_mudas = $8 WHERE safra_id = $9',
+    'UPDATE sistema.safra SET varal_id = $1, campo_id = $2, lupulo_id = $3, descricao = $4, data_plantio = $5, data_colheita_prevista = $6,data_colheita_efetiva = $7,data_floracao_prevista = $8, data_floracao_efetiva = $9,data_iluminacao_ini = $10, data_iluminacao_fim = $11, qtd_mudas = $12 WHERE safra_id = $13',
     [
       varal_id,
       campo_id,
       lupulo_id,
       descricao,
       data_plantio,
-      data_colheita_prev,
-      data_floracao_prev,
+      data_colheita_prevista,
+      data_colheita_efetiva,
+      data_floracao_prevista,
+      data_floracao_efetiva,
+      data_iluminacao_ini,
+      data_iluminacao_fim,
       qtd_mudas,
       safra_id
     ]
