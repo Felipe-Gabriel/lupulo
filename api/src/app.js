@@ -23,6 +23,7 @@ const acaoRoute = require('./routes/acao.routes')
 const pedidoRoute = require('./routes/pedido.routes')
 const itemPedidoRoute = require('./routes/item_pedido.routes')
 const meteorologiaRoute = require('./routes/meteorologia.routes')
+const analiseSafraRoute = require('./routes/analise_safra.routes')
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -41,5 +42,6 @@ app.use('/api', acaoRoute)
 app.use('/api', pedidoRoute)
 app.use('/api', itemPedidoRoute)
 app.use('/api', meteorologiaRoute)
+app.use('/api', analiseSafraRoute)
 
 module.exports = app
