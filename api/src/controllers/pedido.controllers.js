@@ -12,7 +12,6 @@ const db = require('../config/database')
 exports.createPedido = async (req, res) => {
   const {
     data_pedido,
-    hora_pedido,
     tipo,
     pessoa_id,
     nome,
@@ -30,10 +29,9 @@ exports.createPedido = async (req, res) => {
     valor_total
   } = req.body
   const response = await db.query(
-    'INSERT INTO sistema.pedido (data_pedido, hora_pedido, tipo, pessoa_id, nome, cpf_cnpj, email, razao_social, endereco, complemento, cidade, estado, pais, telefone, contato, qtd_total, valor_total)VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17)',
+    'INSERT INTO sistema.pedido (data_pedido, tipo, pessoa_id, nome, cpf_cnpj, email, razao_social, endereco, complemento, cidade, estado, pais, telefone, contato, qtd_total, valor_total)VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16)',
     [
       data_pedido,
-      hora_pedido,
       tipo,
       pessoa_id,
       nome,
@@ -81,7 +79,6 @@ exports.updatePedidoById = async (req, res) => {
   const pedido_id = parseInt(req.params.id)
   const {
     data_pedido,
-    hora_pedido,
     tipo,
     pessoa_id,
     nome,
@@ -100,10 +97,9 @@ exports.updatePedidoById = async (req, res) => {
   } = req.body
 
   const response = await db.query(
-    'UPDATE sistema.pedido SET data_pedido = $1, hora_pedido = $2, tipo = $3, pessoa_id = $4, nome = $5, cpf_cnpj = $6, email = $7, razao_social = $8, endereco = $9, complemento = $10, cidade = $11, estato = $12, pais = $13, telefone = $14, contato = $15, qtd_total = $16, valor_total = $17 WHERE pedido_id = $18',
+    'UPDATE sistema.pedido SET data_pedido = $1, tipo = $2, pessoa_id = $3, nome = $4, cpf_cnpj = $5, email = $6, razao_social = $7, endereco = $8, complemento = $9, cidade = $10, estato = $11, pais = $12, telefone = $13, contato = $14, qtd_total = $15, valor_total = $16 WHERE pedido_id = $17',
     [
       data_pedido,
-      hora_pedido,
       tipo,
       pessoa_id,
       nome,

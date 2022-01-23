@@ -39,8 +39,8 @@ exports.createAnaliseSafra = async (req, res) => {
     humuleno_fim,
     cariofileno_ini,
     cariofileno_fim,
-    fameseno_ini,
-    fameseno_fim,
+    farneseno_ini,
+    farneseno_fim,
     betaselinenos_ini,
     betaselinenos_fim,
     alfaselinenos_ini,
@@ -53,8 +53,9 @@ exports.createAnaliseSafra = async (req, res) => {
     geraniol_fim
   } = req.body
   const response = await db.query(
-    'INSERT INTO sistema.analise_safra (colheita_id,safra_id,varal_id,campo_id, lupulo_id,data_analise,pessoa_id,descricao,perfil,acidos_alfa_ini,acidos_alfa_fim,acidos_beta_ini,acidos_beta_fim,co_humuleno_ini,co_humuleno_fim,co_lupuleno_ini,co_lupuleno_fim,polifenois_ini,polifenois_fim,xantumol_ini,xantumol_fim,oleo_total_100g,mirceno_ini,mirceno_fim,humuleno_ini,humuleno_fim,cariofileno_ini,cariofileno_fim,fameseno_ini,fameseno_fim,betaselinenos_ini,betaselinenos_fim,alfaselinenos_ini,alfaselinenos_fim,b_pineno_ini,b_pineno_fim,linalol_ini,linalol_fim,geraniol_ini,geraniol_fim) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29,$30,$31,$32,$33,$34,$35,$36,$37,$38,$39,$40)'[
-      (colheita_id,
+    'INSERT INTO sistema.analise_safra (colheita_id,safra_id,varal_id,campo_id, lupulo_id,data_analise,pessoa_id,descricao,perfil,acidos_alfa_ini,acidos_alfa_fim,acidos_beta_ini,acidos_beta_fim,co_humuleno_ini,co_humuleno_fim,co_lupuleno_ini,co_lupuleno_fim,polifenois_ini,polifenois_fim,xantumol_ini,xantumol_fim,oleo_total_100g,mirceno_ini,mirceno_fim,humuleno_ini,humuleno_fim,cariofileno_ini,cariofileno_fim,farneseno_ini,farneseno_fim,betaselinenos_ini,betaselinenos_fim,alfaselinenos_ini,alfaselinenos_fim,b_pineno_ini,b_pineno_fim,linalol_ini,linalol_fim,geraniol_ini,geraniol_fim) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29,$30,$31,$32,$33,$34,$35,$36,$37,$38,$39,$40)',
+    [
+      colheita_id,
       safra_id,
       varal_id,
       campo_id,
@@ -82,8 +83,8 @@ exports.createAnaliseSafra = async (req, res) => {
       humuleno_fim,
       cariofileno_ini,
       cariofileno_fim,
-      fameseno_ini,
-      fameseno_fim,
+      farneseno_ini,
+      farneseno_fim,
       betaselinenos_ini,
       betaselinenos_fim,
       alfaselinenos_ini,
@@ -93,7 +94,7 @@ exports.createAnaliseSafra = async (req, res) => {
       linalol_ini,
       linalol_fim,
       geraniol_ini,
-      geraniol_fim)
+      geraniol_fim
     ]
   )
   res.status(201).send({
@@ -127,8 +128,8 @@ exports.createAnaliseSafra = async (req, res) => {
       humuleno_fim,
       cariofileno_ini,
       cariofileno_fim,
-      fameseno_ini,
-      fameseno_fim,
+      farneseno_ini,
+      farneseno_fim,
       betaselinenos_ini,
       betaselinenos_fim,
       alfaselinenos_ini,

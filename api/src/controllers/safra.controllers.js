@@ -42,7 +42,7 @@ exports.createSafra = async (req, res) => {
     ]
   )
   res.status(201).send({
-    message: 'Varal adicionado com sucesso!!!',
+    message: 'Safra adicionado com sucesso!!!',
     body: {
       varal_id,
       campo_id,
