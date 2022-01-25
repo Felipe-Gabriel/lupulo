@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo:'lupulos' },
+  { path: '', pathMatch: 'full', redirectTo:'' },
   { path: 'lupulos',
     loadChildren: () => import('./lupulos/lupulos.module').then(m => m.LupulosModule)
 }

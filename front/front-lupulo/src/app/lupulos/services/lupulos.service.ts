@@ -18,7 +18,7 @@ export class LupulosService {
     return this.httpClient.get<Lupulo[]>(this.API)
     .pipe(
       first(),
-      delay(5000),
+      //delay(5000),
       tap(lupulos => console.log(lupulos))
     );
   }
