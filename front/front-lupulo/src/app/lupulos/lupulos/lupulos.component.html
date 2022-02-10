@@ -1,5 +1,17 @@
 <mat-card>
-  <mat-toolbar color="primary"> Lúpulos do Plantio </mat-toolbar>
+  <mat-toolbar color="primary" class="example-spacer">
+    <span>Lúpulos do Plantio</span>
+    <span class="example-spacer"></span>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+      mat-raised-button
+      (click)="openDialog()"
+    >
+      <mat-icon>input</mat-icon>
+    </button>
+  </mat-toolbar>
 
   <div *ngIf="lupulos$ | async as lupulos; else loading">
     <table mat-table [dataSource]="lupulos" class="mat-elevation-z8">
@@ -34,6 +46,26 @@
       <ng-container matColumnDef="finalidade">
         <th mat-header-cell *matHeaderCellDef>Finalidade</th>
         <td mat-cell *matCellDef="let lupulos">{{ lupulos.finalidade }}</td>
+      </ng-container>
+
+      <!-- editar Column -->
+      <ng-container matColumnDef="editar">
+        <th mat-header-cell *matHeaderCellDef>Editar</th>
+        <td mat-cell *matCellDef="let lupulos">
+          <button mat-raised-button (click)="excluir(lupulos.lupulos_id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- editar Column -->
+      <ng-container matColumnDef="deletar">
+        <th mat-header-cell *matHeaderCellDef>Deletar</th>
+        <td mat-cell *matCellDef="let lupulos">
+          <button mat-raised-button (click)="deletar(lupulos_id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

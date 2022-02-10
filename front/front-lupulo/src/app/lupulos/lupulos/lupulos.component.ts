@@ -1,3 +1,4 @@
+
 import { LupulosService } from './../services/lupulos.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -6,6 +7,7 @@ import { Lupulo } from '../models/lupulo';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ErrorDialogComponent } from '../../shared/components/error-dialog/error-dialog.component';
+import { FormularioComponent } from '../formulario/formulario.component'
 
 @Component({
   selector: 'app-lupulos',
@@ -13,9 +15,10 @@ import { ErrorDialogComponent } from '../../shared/components/error-dialog/error
   styleUrls: ['./lupulos.component.scss']
 })
 export class LupulosComponent implements OnInit {
+  [x: string]: any;
 
   lupulos$: Observable<Lupulo[]>;
-  displayedColumns = ['especie','descricao','pais_origem','semelhantes','finalidade'];
+  displayedColumns = ['especie','descricao','pais_origem','semelhantes','finalidade','editar','deletar'];
 
   //lupulosService: LupulosService;
 
@@ -41,4 +44,20 @@ export class LupulosComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(FormularioComponent, {
+      minWidth: '250px',
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed')
+    });
+  }
+
+  deletar(_id : string) {
+    this.lupulosService.deleteLupulo(_id)
+  }
 }
+
+

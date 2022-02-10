@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Inserir Lupulo</h1>
+<div mat-dialog-content>
+  <form class="example-form" [formGroup]="lupuloForm">
+    <mat-form-field class="example-form-width">
+      <mat-label>Especie do Lúpulo</mat-label>
+      <input matInput formControlName="especie" name="especie" />
+    </mat-form-field>
+
+    <mat-form-field class="example-form-width">
+      <mat-label>Descricao do Lúpulo</mat-label>
+      <input matInput formControlName="descricao" name="descricao" />
+    </mat-form-field>
+
+    <mat-form-field class="example-form-width">
+      <mat-label>Pais Origem do Lúpulo</mat-label>
+      <input matInput formControlName="pais_origem" name="pais_origem" />
+    </mat-form-field>
+
+    <mat-form-field class="example-form-width">
+      <mat-label>Lúpulo Semelhantes</mat-label>
+      <input matInput formControlName="semelhantes" name="semelhantes" />
+    </mat-form-field>
+
+    <mat-form-field class="example-form-width">
+      <mat-label>Finalidade do Lúpulo</mat-label>
+      <input matInput formControlName="finalidade" name="finalidade" />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="createLupulo()">
+    Adicionar
+  </button>
+  <button mat-button (click)="cancel()">Cancelar</button>
+</div>

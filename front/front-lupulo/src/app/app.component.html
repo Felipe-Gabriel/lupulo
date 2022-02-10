@@ -1,31 +1,67 @@
-<p>
-  <mat-toolbar color="primary">
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with menu icon"
-    >
-      <mat-icon>menu</mat-icon>
-    </button>
-    <button mat-button routerLink="">Home</button>
+<!--<mat-sidenav-container
+  class="sidenav-container"
+  (backdropClick)="closeSideNav()"
+>
+  <mat-sidenav #sidenav class="sidenav" fixedInViewport="true">
+    <mat-toolbar color="primary">
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+  </mat-sidenav>
+</mat-sidenav-container>
 
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <button mat-button routerLink="">Home</button>
+
+  <button mat-button routerLink="/lupulos">Lupulos Pantio</button>
+  <button mat-button routerLink="/lupulos">Cadastro Cliente</button>
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+
+<router-outlet></router-outlet> -->
+<mat-sidenav-container color="primary">
+  <mat-sidenav color="primary" mode="side" [(opened)]="opened">
+    <button mat-button routerLink="">Home</button>
     <button mat-button routerLink="/lupulos">Lupulos Pantio</button>
     <button mat-button routerLink="/lupulos">Cadastro Cliente</button>
-    <button
-      mat-icon-button
-      class="example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon"
-    >
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with share icon"
-    >
-      <mat-icon>share</mat-icon>
-    </button>
-  </mat-toolbar>
-</p>
-
-<router-outlet></router-outlet>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        (click)="opened = !opened"
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
