@@ -1,5 +1,5 @@
 export interface Lupulo {
-  _id: string;
+  lupulo_id: number;
   especie: string;
   descricao: string;
   pais_origem: string;

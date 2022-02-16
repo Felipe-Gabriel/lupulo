@@ -1,35 +1,62 @@
 <h1 mat-dialog-title>Inserir Lupulo</h1>
 <div mat-dialog-content>
-  <form class="example-form" [formGroup]="lupuloForm">
-    <mat-form-field class="example-form-width">
+  <form [formGroup]="lupuloForm">
+    <mat-form-field appearance="outline">
       <mat-label>Especie do Lúpulo</mat-label>
-      <input matInput formControlName="especie" name="especie" />
+      <input
+        formControlName="especie"
+        matInput
+        placeholder="Nome da Especie do Lúpulo"
+      />
     </mat-form-field>
 
-    <mat-form-field class="example-form-width">
+    <mat-form-field appearance="outline">
       <mat-label>Descricao do Lúpulo</mat-label>
-      <input matInput formControlName="descricao" name="descricao" />
+      <textarea
+        formControlName="descricao"
+        matInput
+        placeholder="Opções de Utilização do Lupulo"
+      ></textarea>
     </mat-form-field>
 
-    <mat-form-field class="example-form-width">
-      <mat-label>Pais Origem do Lúpulo</mat-label>
-      <input matInput formControlName="pais_origem" name="pais_origem" />
+    <mat-form-field appearance="outline">
+      <mat-label>Pais de Origem</mat-label>
+      <input
+        formControlName="pais_origem"
+        matInput
+        placeholder="País de origem da especie do Lúpulo"
+      />
     </mat-form-field>
 
-    <mat-form-field class="example-form-width">
-      <mat-label>Lúpulo Semelhantes</mat-label>
-      <input matInput formControlName="semelhantes" name="semelhantes" />
+    <mat-form-field appearance="outline">
+      <mat-label> Lúlupos Semelhantes</mat-label>
+      <input
+        formControlName="semelhantes"
+        matInput
+        placeholder="Lúpulos com as mesmas características"
+      />
     </mat-form-field>
 
-    <mat-form-field class="example-form-width">
-      <mat-label>Finalidade do Lúpulo</mat-label>
-      <input matInput formControlName="finalidade" name="finalidade" />
-    </mat-form-field>
+    <label for=""><h1>Qual a finalidade do Lúpulo?</h1></label>
+    <mat-radio-group formControlName="finalidade" class="example-radio-group">
+      <mat-radio-button
+        class="example-radio-button"
+        *ngFor="let fresh of freshnessList"
+        [value]="fresh"
+      >
+        {{ fresh }}
+      </mat-radio-button>
+    </mat-radio-group>
   </form>
 </div>
-<div mat-dialog-actions>
-  <button mat-raised-button color="primary" (click)="createLupulo()">
-    Adicionar
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button
+    style="margin-left: 8px"
+    mat-raised-button
+    color="primary"
+    (click)="addLupulo()"
+  >
+    {{ actionBtn }}
   </button>
-  <button mat-button (click)="cancel()">Cancelar</button>
 </div>

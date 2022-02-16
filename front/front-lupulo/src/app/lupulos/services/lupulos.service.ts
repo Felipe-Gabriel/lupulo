@@ -1,9 +1,5 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-import { Lupulo } from '../models/lupulo';
-import { delay, first, tap, take } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -11,29 +7,24 @@ import { Observable } from 'rxjs';
 export class LupulosService {
 
   //private readonly API = '/assets/lupulo.json';
-  private readonly API = 'http://localhost:3000/api/lupulo';
+  private readonly API = 'http://localhost:3000/api/lupulo/';
 
   constructor(private httpClient: HttpClient) { }
 
-  public postLupulo(lupulo: any): Observable<Lupulo>{
-    return this.httpClient.post<any>(this.API, lupulo)
+
+  postLupulo(data : any){
+    return this.httpClient.post<any>("http://localhost:3000/api/lupulo/",data);
+  }
+  getLupulo(){
+    return this.httpClient.get<any>("http://localhost:3000/api/lupulo/");
   }
 
-  list() {
-    return this.httpClient.get<Lupulo[]>(this.API)
-    .pipe(
-      first(),
-      //delay(5000),
-      tap(lupulos => console.log(lupulos))
-    );
+  deleteLupulo(lupulo_id: number) {
+    return this.httpClient.delete<any>("http://localhost:3000/api/lupulo/"+lupulo_id);
   }
 
-  public deleteLupulo(_id: string) {
-    return this.httpClient.delete<void>(`${this.API}/${_id}`).pipe(take(1));
-  }
-
-  public updateLupulo(Lupulo: any) {
-    return this.httpClient.put(`${this.API}/${Lupulo._id}`, Lupulo).pipe(take(1));
+  putLupulo(data:any, lupulo_id : number){
+    return this.httpClient.put<any>("http://localhost:3000/api/lupulo/"+lupulo_id ,data);
   }
 
 }

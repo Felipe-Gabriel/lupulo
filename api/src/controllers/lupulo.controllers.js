@@ -61,6 +61,7 @@ exports.createLupulo = async (req, res) => {
       geraniol
     ]
   )
+  res.status(200).send({ message: 'Lupulo Insert Successfully!!' })
 }
 
 //==> Metodo responsável por selecionar toda a base 'Lupulo'
